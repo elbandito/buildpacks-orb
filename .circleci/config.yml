@@ -6,10 +6,10 @@ workflows:
   lint_pack-validate_publish-dev:
     jobs:
       - orb-tools/lint
-      - orb-tools/publish:
+      - orb-tools/publish-dev:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
-          orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH}
+          #orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH}
           publish-token-variable: CIRCLE_TOKEN
           validate: true
           requires:
