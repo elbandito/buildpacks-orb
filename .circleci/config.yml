@@ -5,14 +5,14 @@ orbs:
 workflows:
   lint_pack-validate_publish-dev:
     jobs:
-      # - orb-tools/lint
+      - orb-tools/lint
       - orb-tools/publish-dev:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
           publish-token-variable: CIRCLE_TOKEN
           checkout: true
-          # requires:
-          #   - orb-tools/lint
+          requires:
+            - orb-tools/lint
   tag-triggered-orb-publishing:
     jobs:
       - hold-for-approval:
