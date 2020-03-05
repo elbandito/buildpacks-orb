@@ -12,4 +12,4 @@ workflows:
           publish-token-variable: CIRCLE_TOKEN
           validate: true
           requires:
-            - orb-tools/lint          
+            - orb-tools/lint
