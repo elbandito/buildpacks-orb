@@ -14,8 +14,8 @@ workflows:
           # branch-sha-version-ref: 'dev:$CIRCLE_BRANCH'
           publish-token-variable: CIRCLE_TOKEN
           checkout: true
-          requires:
-            - orb-tools/lint
+          # requires:
+          #   - orb-tools/lint
   tag-triggered-orb-publishing:
     jobs:
       - hold-for-approval:
