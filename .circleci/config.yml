@@ -3,20 +3,17 @@ orbs:
   orb-tools: circleci/orb-tools@9.0.0
 
 workflows:
-  lint_pack-validate_publish-dev:
+  validate-publish-dev:
     jobs:
       - orb-tools/lint
-      - orb-tools/pack:
-          requires:
-            - orb-tools/lint
       - orb-tools/publish-dev:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
           publish-token-variable: CIRCLE_TOKEN
           checkout: true
           requires:
-            - orb-tools/pack
-  tag-triggered-orb-publishing:
+            - orb-tools/lint
+  tag-triggered-publish:
     jobs:
       - hold-for-approval:
           filters:
