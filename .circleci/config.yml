@@ -9,10 +9,9 @@ workflows:
       - orb-tools/publish-dev:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
+          publish-sha-version: false
           branch-sha-version-ref: 'dev:$CIRCLE_BRANCH'
-          #orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH} # use this for publish
           publish-token-variable: CIRCLE_TOKEN
           checkout: true
-          #validate: true # use this for publish
           requires:
             - orb-tools/lint
