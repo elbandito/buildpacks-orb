@@ -5,7 +5,7 @@ orbs:
 workflows:
   lint_pack-validate_publish-dev:
     jobs:
-      #- orb-tools/lint
+      - orb-tools/lint
       - orb-tools/publish:
           orb-path: orb.yml
           orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH}
