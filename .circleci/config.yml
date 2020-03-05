@@ -5,7 +5,7 @@ orbs:
 workflows:
   lint_pack-validate_publish-dev:
     jobs:
-      - orb-tools/lint
+      # - orb-tools/lint
       - orb-tools/publish-dev:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
@@ -28,8 +28,8 @@ workflows:
       - orb-tools/dev-promote-prod-from-git-tag:
           add-pr-comment: false
           orb-name: elbandito/buildpacks
-          orb-ref: 'dev:$CIRCLE_BRANCH'
-          # publish-token-variable: CIRCLE_TOKEN
+          # orb-ref: 'dev:$CIRCLE_BRANCH'
+          publish-token-variable: CIRCLE_TOKEN
           filters:
             branches:
               ignore: /.*/
