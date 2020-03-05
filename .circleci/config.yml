@@ -11,6 +11,7 @@ workflows:
           orb-path: orb.yml
           #orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH}
           publish-token-variable: CIRCLE_TOKEN
+          checkout: true
           #validate: true
           requires:
             - orb-tools/lint
