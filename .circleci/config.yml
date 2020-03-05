@@ -9,9 +9,6 @@ workflows:
       - orb-tools/publish-dev:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
-          # publish-sha-version: false
-          # publish-branch-sha-version: true
-          # branch-sha-version-ref: 'dev:$CIRCLE_BRANCH'
           publish-token-variable: CIRCLE_TOKEN
           checkout: true
           # requires:
@@ -23,17 +20,16 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^(major|minor|patch)-release-v\d+\.\d+\.\d+$/
+              only: /^\d+\.\d+\.\d+$/
           type: approval
-      - orb-tools/dev-promote-prod-from-git-tag:
-          add-pr-comment: false
-          orb-name: elbandito/buildpacks
-          # orb-ref: 'dev:$CIRCLE_BRANCH'
+      - orb-tools/publish:
+          orb-ref: elbandito/buildpacks@$CIRCLE_TAG
+          orb-path: orb.yml
           publish-token-variable: CIRCLE_TOKEN
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^(major|minor|patch)-release-v\d+\.\d+\.\d+$/
+              only: /^\d+\.\d+\.\d+$/
           requires:
             - hold-for-approval
