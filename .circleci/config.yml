@@ -9,7 +9,7 @@ workflows:
       - orb-tools/publish:
           orb-name: elbandito/buildpacks
           orb-path: orb.yml
-          #orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH}
+          orb-ref: elbandito/buildpacks@dev:${CIRCLE_BRANCH}
           publish-token-variable: CIRCLE_TOKEN
           validate: true
           requires:
